@@ -6,7 +6,7 @@
 <!--  配置LoginServlet：处理请求的映射-->
   <servlet>
     <servlet-name>loginservlet</servlet-name>
-    <servlet-class>online.daliang.login.LoginServlet</servlet-class>
+    <servlet-class>online.daliang.login.servlet.LoginServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>

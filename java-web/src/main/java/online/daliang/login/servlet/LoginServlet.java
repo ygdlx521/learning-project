@@ -1,4 +1,4 @@
-package online.daliang.login;
+package online.daliang.login.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
