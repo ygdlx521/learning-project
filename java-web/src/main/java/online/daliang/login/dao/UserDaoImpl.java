@@ -19,8 +19,8 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
         String url = "jdbc:mysql://121.43.40.249:3306/learning_project";
-        String mysql_usr = "";
-        String mysql_passwd = "";
+        String mysql_usr = "daliang";
+        String mysql_passwd = "hyl_911223";
         try {
             Connection conn = DriverManager.getConnection(url, mysql_usr, mysql_passwd);
             String sql = "select id, user_name, password from register_user where user_name = ? and password = ?";
@@ -34,7 +34,6 @@ public class UserDaoImpl implements UserDao {
                 registered_user.setUsername(rs.getString("user_name"));
                 registered_user.setPassword(rs.getString("password"));
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

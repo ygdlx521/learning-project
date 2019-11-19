@@ -1,5 +1,9 @@
 package online.daliang.login.servlet;
 
+import online.daliang.login.beans.User;
+import online.daliang.login.dao.UserDao;
+import online.daliang.login.dao.UserDaoImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +33,14 @@ public class LoginServlet extends HttpServlet {
         System.out.println(password);
         resp.setContentType("text/html;charset=utf-8");
         PrintWriter writer = resp.getWriter();
-        writer.println("login!!!登录啦");
+//        writer.println("login!!!登录啦");
+        UserDao userDao = new UserDaoImpl();
+        User user = userDao.getUserByUserNameAndPassword(username, password);
+        if(user == null){
+            writer.println("登录失败！");
+        } else {
+            writer.println("登录成功！");
+        }
 
     }
 }
