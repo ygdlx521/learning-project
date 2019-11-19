@@ -11,6 +11,7 @@
     <modules>
         <module>Netty-learning</module>
         <module>java-web</module>
+        <module>maven-learning</module>
     </modules>
 
 
