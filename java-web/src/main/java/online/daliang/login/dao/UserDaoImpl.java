@@ -1,6 +1,7 @@
 package online.daliang.login.dao;
 
 import online.daliang.login.beans.User;
+import online.daliang.login.utils.ConnectionUtils;
 
 import java.sql.*;
 
@@ -13,16 +14,17 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getUserByUserNameAndPassword(String username, String password) {
         User registered_user = null;
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        String url = "jdbc:mysql://121.43.40.249:3306/learning_project";
+//        String mysql_usr = "daliang";
+//        String mysql_passwd = "hyl_911223";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        String url = "jdbc:mysql://121.43.40.249:3306/learning_project";
-        String mysql_usr = "daliang";
-        String mysql_passwd = "hyl_911223";
-        try {
-            Connection conn = DriverManager.getConnection(url, mysql_usr, mysql_passwd);
+//            Connection conn = DriverManager.getConnection(url, mysql_usr, mysql_passwd);
+            Connection conn = ConnectionUtils.getConn();
             String sql = "select id, user_name, password from register_user where user_name = ? and password = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1,username);
@@ -36,6 +38,12 @@ public class UserDaoImpl implements UserDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                ConnectionUtils.closeConn();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return registered_user;
 
