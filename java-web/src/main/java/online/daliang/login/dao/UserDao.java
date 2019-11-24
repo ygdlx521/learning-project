@@ -10,4 +10,8 @@ import online.daliang.login.beans.User;
 public interface UserDao {
 
     public User getUserByUserNameAndPassword(String username, String password);
+
+    public User getUserByUserName(String username);
+
+    public void insertUser(String username,String password);
 }

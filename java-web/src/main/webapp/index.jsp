@@ -9,6 +9,13 @@
 <html>
 <head>
     <title>Title</title>
+    <script type="text/javascript">
+        function clickButton() {
+            // alert("是谁点我！！！！")
+            var mySpan = window.document.getElementById("s1");
+            mySpan.innerHTML = "呵呵呵呵";
+        }
+    </script>
 </head>
 <body>
     <%
@@ -16,5 +23,7 @@
         System.out.println("ABC");
     %>
     <%=5>3?"大于1":"小于"%>
+    <input type="button" value="点我" onclick="clickButton();">
+    <span id="s1">哈哈哈哈</span>
 </body>
 </html>

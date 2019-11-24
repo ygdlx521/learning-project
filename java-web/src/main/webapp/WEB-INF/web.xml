@@ -8,9 +8,17 @@
     <servlet-name>loginservlet</servlet-name>
     <servlet-class>online.daliang.login.servlet.LoginServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>registerservlet</servlet-name>
+    <servlet-class>online.daliang.login.servlet.RegisterServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>loginservlet</servlet-name>
     <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>registerservlet</servlet-name>
+    <url-pattern>/register</url-pattern>
   </servlet-mapping>
 </web-app>

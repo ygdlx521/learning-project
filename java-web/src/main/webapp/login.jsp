@@ -18,19 +18,25 @@
             color: red;
         }
     </style>
+    <script type="text/javascript">
+        function clearLoginMsg() {
+            var spanEle = document.getElementById("login_span");
+            spanEle.innerText = "";
+        }
+    </script>
 
 </head>
 <!--<body bgcolor="pink"> -->
 <body bgcolor="pink">
 <h1>欢迎登录</h1>
 <form action="/login" method="post">
-    用户名称 :<input type="text" name="username"/>
+    用户名称 :<input type="text" name="username" onfocus="clearLoginMsg();"/>
 <%--    <%--%>
 <%--        //获取req对象（九大对象）--%>
 <%--        String loginMsg = (String) request.getAttribute("login_msg");--%>
 <%--    %>--%>
 <%--    <span><%=loginMsg == null?"":loginMsg%></span>--%>
-    <span>${login_msg}</span>
+    <span id="login_span">${login_msg}</span>
     <br/>
     用户密码 :<input type="password" name="password"/>
     <br/>
