@@ -18,11 +18,11 @@ import java.io.IOException;
  */
 @WebServlet(name = "CheckUsernameServlet")
 public class CheckUsernameServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userName = request.getParameter("username");
         UserDao userDao = new UserDaoImpl();
         User user = userDao.getUserByUserName(userName);
@@ -34,5 +34,6 @@ public class CheckUsernameServlet extends HttpServlet {
         }
         response.setContentType("text/html;charset=utf-8");
         response.getWriter().println(msg);
+        System.out.println(msg);
     }
 }
