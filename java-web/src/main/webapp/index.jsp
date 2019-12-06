@@ -38,5 +38,6 @@
     <br>
     <input id="i1" type="text" name="msg" />
     <input type="button" id="d2" value="测试jQuery">
+    <a href="CookieServlet">Test Cookie</a>
 </body>
 </html>

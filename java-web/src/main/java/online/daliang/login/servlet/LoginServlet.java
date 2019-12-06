@@ -46,7 +46,9 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
             rd.forward(req,resp);
         } else {
-            writer.println("登录成功！");
+//            writer.println("登录成功！");
+
+            resp.sendRedirect("main.jsp");
         }
 
     }

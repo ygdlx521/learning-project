@@ -37,6 +37,8 @@
 
         }
         $(function () {
+            var usernameFlag = false;
+            var passwordFlag = false;
             $("#username").blur(function () {
                 var username = $("#username").val();
                 $.ajax({
@@ -44,7 +46,12 @@
                     type:"post",
                     data:"username=" + username,
                     success:function (data) {
-                        $("#register_span").html(data)
+                        if(data == 0){
+                            $("#register_span").html("用户名可以使用")
+                            usernameFlag = true;
+                        } else {
+                            $("#register_span").html("用户名不可以使用")
+                        }
                     }
                 })
             })
@@ -52,8 +59,15 @@
                 var password = $("#password").val();
                 var repassword = $("#repassword").val();
                 if(password !== null && password !== "" && password === repassword){
-
+                    $("#pass_span").html("密码一致")
+                    passwordFlag = true
+                } else {
+                    $("#pass_span").html("密码不一致")
                 }
+            })
+
+            $("form").submit(function () {
+                return usernameFlag && passwordFlag;
             })
 
         })
@@ -69,7 +83,7 @@
         <br/>
         用户密码 :<input type="password" name="password" id="password"/>
         <br/>
-        确认密码 :<input type="password" name="repassword" id="repassword">
+        确认密码 :<input type="password" name="repassword" id="repassword"><span id="pass_span"></span>
 
         <input type="submit" value="注册"/>
     </form>

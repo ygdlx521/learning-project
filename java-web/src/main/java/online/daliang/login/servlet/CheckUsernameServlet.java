@@ -28,9 +28,9 @@ public class CheckUsernameServlet extends HttpServlet {
         User user = userDao.getUserByUserName(userName);
         String msg = "";
         if(user == null){
-            msg = "用户名可以使用";
+            msg = "0";
         } else {
-            msg = "用户名已存在";
+            msg = "1";
         }
         response.setContentType("text/html;charset=utf-8");
         response.getWriter().println(msg);

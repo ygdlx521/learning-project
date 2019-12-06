@@ -16,6 +16,18 @@
     <servlet-name>CheckUsernameServlet</servlet-name>
     <servlet-class>online.daliang.login.servlet.CheckUsernameServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>CookieServlet</servlet-name>
+    <servlet-class>online.daliang.login.servlet.AddCookieServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GetCookieServlet</servlet-name>
+    <servlet-class>online.daliang.login.servlet.GetCookieServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SessionServlet</servlet-name>
+    <servlet-class>online.daliang.login.servlet.SessionServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>loginservlet</servlet-name>
@@ -28,5 +40,17 @@
   <servlet-mapping>
     <servlet-name>CheckUsernameServlet</servlet-name>
     <url-pattern>/checkusername</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CookieServlet</servlet-name>
+    <url-pattern>/CookieServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetCookieServlet</servlet-name>
+    <url-pattern>/GetCookieServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SessionServlet</servlet-name>
+    <url-pattern>/SessionServlet</url-pattern>
   </servlet-mapping>
 </web-app>
