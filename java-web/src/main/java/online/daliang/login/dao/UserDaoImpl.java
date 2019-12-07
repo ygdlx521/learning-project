@@ -5,6 +5,8 @@ import online.daliang.login.beans.User;
 import online.daliang.login.utils.ConnectionUtils;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created on 2019/11/18.
@@ -105,6 +107,34 @@ public class UserDaoImpl implements UserDao {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        ArrayList<User> users = new ArrayList<>();
+        try {
+            Connection conn = ConnectionUtils.getConn();
+            String sql = "select id, user_name, password from register_user";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()){
+                User user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setUsername(resultSet.getString("user_name"));
+                user.setPassword(resultSet.getString("password"));
+                users.add(user);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                ConnectionUtils.closeConn();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return users;
         }
     }
 }

@@ -2,6 +2,8 @@ package online.daliang.login.dao;
 
 import online.daliang.login.beans.User;
 
+import java.util.List;
+
 /**
  * Created on 2019/11/18.
  *
@@ -14,4 +16,6 @@ public interface UserDao {
     public User getUserByUserName(String username);
 
     public void insertUser(String username,String password);
-}
+
+    public List<User> getAllUsers();
+ }
