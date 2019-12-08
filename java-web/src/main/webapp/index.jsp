@@ -14,7 +14,7 @@
         function clickButton() {
             // alert("是谁点我！！！！")
             var mySpan = window.document.getElementById("s1");
-            mySpan.innerHTML = "呵呵呵呵";
+            mySpan.innerHTML = "呵呵呵呵,何蕴良大傻子，菜鸡！！";
         }
         $(function () { //文档加载完毕就执行
 
