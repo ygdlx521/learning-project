@@ -42,6 +42,10 @@
     <servlet-name>SessionServlet</servlet-name>
     <servlet-class>online.daliang.login.servlet.SessionServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>GetJsonStrServlet</servlet-name>
+    <servlet-class>online.daliang.login.servlet.GetJsonStrServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>loginservlet</servlet-name>
@@ -66,5 +70,9 @@
   <servlet-mapping>
     <servlet-name>SessionServlet</servlet-name>
     <url-pattern>/SessionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetJsonStrServlet</servlet-name>
+    <url-pattern>/GetJsonStrServlet</url-pattern>
   </servlet-mapping>
 </web-app>

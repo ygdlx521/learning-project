@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript">
+		//js中操作json
+		//1. 编写一个json字符串
+		//var jsonStr = '{"lastName":"Tom","email":"tom@atguigu.com","age":22}';
+		// json字符串转成json对象
+		//var jsonObj = JSON.parse(jsonStr);
+		//alert(jsonObj.lastName + "," + jsonObj.email + " , " + jsonObj.age);
+		
+		//json对象转换成json字符串
+		
+		//var str = JSON.stringify(jsonObj);
+		//alert(str);
+		
+		$(function(){
+			$("#showTable").click(function(){
+				//发送异步请求，获取员工数据(json格式)
+				$.ajax({
+					url:"GetJsonStrServlet",
+					type:"post",
+					dataType:"json",
+					success:function(data){  // 直接将服务端返回的json字符串直接转换成json对象.
+						var str = "<tr><th>ID</th><th>Username</th><th>Password</th></tr>";
+						for(var i = 0 ;i <data.length;i++){
+							var emp = data[i];
+							str+="<tr align='center'><td>"+emp.id+"</td><td>"+emp.username+"</td><td>"+emp.password+"</td></tr>";
+						}
+						
+						$("#empTable").html(str);
+					}
+				});				
+				
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<input id="showTable" type="button" value="显示员工信息列表" />
+	<h1 align="center"> 员工信息列表</h1>
+	<table id="empTable" align="center" border="1px" width="70%" cellspacing="0px">
+		
+	
+	</table>
+</body>
+</html>
