@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <h1 align="center"> 欢迎 ${sessionScope.loginUser.username} 登录</h1>
+    <h1 align="center"> 欢迎 ${sessionScope.loginUser.username} 登录， 当前在线 ${applicationScope.count} 人</h1>
     <br>
     <br>
     <h2 align="center">用户密码列表</h2>
