@@ -12,6 +12,8 @@
         <module>Netty-learning</module>
         <module>java-web</module>
         <module>maven-learning</module>
+        <module>spring-xml</module>
+        <module>spring-annotation</module>
     </modules>
 
 
