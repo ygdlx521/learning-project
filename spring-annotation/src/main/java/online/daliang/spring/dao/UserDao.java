@@ -6,4 +6,6 @@ package online.daliang.spring.dao;
  * @author daliang
  */
 public interface UserDao {
+
+    public void insertUser();
 }
