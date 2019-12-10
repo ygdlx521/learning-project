@@ -14,6 +14,7 @@
         <module>maven-learning</module>
         <module>spring-xml</module>
         <module>spring-annotation</module>
+        <module>spring-mvc</module>
     </modules>
 
 
