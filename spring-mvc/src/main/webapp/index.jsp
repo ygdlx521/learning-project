@@ -2,11 +2,16 @@
 
 <html>
 <body>
-    <h2>Hello World!</h2>
-    <a href="/hello"> 测试请求</a>
-    <br>
-    <a href="testRequestParam?name=tom&age=22">测试请求参数</a>
-    <br>
-    <a href="testResponseParam?name=tom&age=22">测试请求参数</a>
+    <!-- 给服务端发送 testRest请求， 并且提交 username=dahai&age=44 参数-->
+    <a href="testRest/dahai/44"> 测试 RESTful URL</a>
+    <br/>
+
+    <a href="testRedirect">测试Springmvc 重定向</a>
+    <br/>
+    <a href="testResponseData">测试Springmvc处理响应数据</a>
+    <br/>
+    <a href="testRequestParam?name=tom&age=22">测试 Springmvc处理请求参数</a>
+    <br/>
+    <a href="hello"> Hello Springmvc </a>
 </body>
 </html>

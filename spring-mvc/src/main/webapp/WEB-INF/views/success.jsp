@@ -10,7 +10,9 @@
 <head>
     <title>Title</title>
 </head>
-<body>
-    <h2>hahaha</h2>
-</body>
+    <body>
+    <h1>Success Page .</h1>
+
+    username : ${requestScope.username}
+    </body>
 </html>
