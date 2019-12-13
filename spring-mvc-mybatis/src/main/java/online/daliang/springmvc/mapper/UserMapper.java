@@ -10,4 +10,14 @@ import online.daliang.springmvc.beans.User;
 public interface UserMapper {
 
     public User getUserById(Integer id);
+
+
+    public void insertUser(User user );
+
+
+    public void updateUser(User user );
+
+
+    public void deleteUser(Integer id );
+
 }

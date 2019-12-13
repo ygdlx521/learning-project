@@ -6,4 +6,22 @@
     <select id="getUserById" resultType="online.daliang.springmvc.beans.User">
         select id, user_name, password from register_user where id = #{id}
     </select>
+
+    <!-- public void insertUser(User User ); -->
+    <insert id="insertUser">
+  	insert into register_user (id, user_name,password ) values (#{id},#{userName},#{password})
+  </insert>
+
+    <!-- public void updateUser(User User ); -->
+    <update id="updateUser">
+  	update register_user set 
+  		user_name = #{userName},
+  		password = #{password}
+  	where id = #{id}	
+  </update>
+
+    <!-- 	public void deleteUser(Integer id );-->
+    <delete id="deleteUser">
+  	delete from register_user where id = #{id}
+  </delete>
 </mapper>
