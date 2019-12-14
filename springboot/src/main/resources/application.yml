@@ -1,0 +1,15 @@
+---
+spring:
+  datasource:
+    name: mydb
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://121.43.40.249:3306/learning_project
+    username: daliang
+    password: hyl_911223
+
+
+
+
+mybatis:
+  mapper-locations: classpath*:online/daliang/springboot/mapper/*Mapper.xml
+

@@ -15,6 +15,7 @@
         <module>spring-xml</module>
         <module>spring-annotation</module>
         <module>spring-mvc-mybatis</module>
+        <module>springboot</module>
     </modules>
 
 
