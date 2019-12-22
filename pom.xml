@@ -16,6 +16,7 @@
         <module>spring-annotation</module>
         <module>spring-mvc-mybatis</module>
         <module>springboot</module>
+        <module>flink-learning</module>
     </modules>
 
 
