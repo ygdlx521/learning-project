@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="num"> <button @click="num++">+</button>
+    <input type="text" v-model="num"> <button @click="num--">-</button>
+    <h1>
+        {{name}} 牛逼！<br>
+        {{num}} 个菜鸡
+    </h1>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data:{
+            name:"大良",
+            num:1,
+        }
+    })
+</script>
+</body>
+</html>
