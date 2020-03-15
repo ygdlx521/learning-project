@@ -6,20 +6,28 @@
 </head>
 <body>
 <div id="app">
-    <input type="text" v-model="num"> <button @click="num++">+</button>
-    <input type="text" v-model="num"> <button @click="num--">-</button>
+    <input type="text" v-model="num"> <button @click="num++">+</button><br>
+    <input type="text" v-model="num"> <button @click="num--">-</button><br>
+    <button @click="handleClick">点我</button>
+
     <h1>
-        {{name}} 牛逼！<br>
+        <span v-text="name"></span> 牛逼！<br>
         {{num}} 个菜鸡
     </h1>
 </div>
 <script src="node_modules/vue/dist/vue.js"></script>
-<script>
+<script type="text/javascript">
     const app = new Vue({
-        el:"#app",
-        data:{
+        el:"#app", //vue作用标签，必须在其内部使用
+        data:{     // data 内部变量才可以使用
             name:"大良",
-            num:1,
+            num:1
+
+        },
+        methods:{
+            handleClick(){
+                console.log("hello,大良你真菜，照着视频看还能写错，你把METHODS写到data里面了!");
+            }
         }
     })
 </script>
