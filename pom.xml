@@ -17,7 +17,7 @@
         <module>spring-mvc-mybatis</module>
         <module>springboot</module>
         <module>flink-learning</module>
-        <module>vue-learning</module>
+        <module>kafka-learning</module>
     </modules>
 
 

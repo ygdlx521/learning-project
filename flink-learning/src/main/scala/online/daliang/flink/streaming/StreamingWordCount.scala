@@ -8,7 +8,7 @@ object StreamingWordCount {
 
   def main(args: Array[String]): Unit = {
     val params: ParameterTool =  ParameterTool.fromArgs(args)
-    val host: String = params.get("host","localhost")
+    val host: String = params.get("host","master")
     val port: Int = params.getInt("port", 9090)
 
     // 创建流处理环境
