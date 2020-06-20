@@ -35,7 +35,7 @@ object FlinkWithKafka {
 
     stream.addSink(
       new FlinkKafkaProducer[String](
-        "second_test", KafkaSerializationSchema[String], producerProperties)
+        "second_test", new SimpleStringSchema(), producerProperties)
     )
 
     // 启动executor，执行任务
