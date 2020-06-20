@@ -1,4 +1,4 @@
-package online.daliang.kafka.model;
+package online.daliang.kafka.producer.model;
 
 public class Member {
 

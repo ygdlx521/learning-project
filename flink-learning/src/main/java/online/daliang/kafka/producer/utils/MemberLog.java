@@ -1,6 +1,6 @@
-package online.daliang.kafka.utils;
+package online.daliang.kafka.producer.utils;
 
-import online.daliang.kafka.model.Member;
+import online.daliang.kafka.producer.model.Member;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;

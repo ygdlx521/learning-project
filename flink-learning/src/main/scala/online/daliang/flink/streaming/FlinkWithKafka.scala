@@ -5,7 +5,7 @@ import java.util.Properties
 import org.apache.flink.api.common.serialization.SimpleStringSchema
 import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
-import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer}
+import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer, KafkaSerializationSchema}
 
 
 object FlinkWithKafka {
@@ -25,7 +25,7 @@ object FlinkWithKafka {
     properties.setProperty("auto.offset.reset", "latest")
 
     val stream: DataStream[String] = env.addSource(
-      new FlinkKafkaConsumer[String]("first", new SimpleStringSchema(), properties)
+      new FlinkKafkaConsumer[String]("first_test", new SimpleStringSchema(), properties)
     )
 
     val producerProperties = new Properties()
@@ -33,7 +33,8 @@ object FlinkWithKafka {
 
 
     stream.addSink(
-      new FlinkKafkaProducer[String]( "second", new SimpleStringSchema(), producerProperties)
+      new FlinkKafkaProducer[String](
+        "second_test", KafkaSerializationSchema[String], producerProperties)
     )
 
     // 启动executor，执行任务

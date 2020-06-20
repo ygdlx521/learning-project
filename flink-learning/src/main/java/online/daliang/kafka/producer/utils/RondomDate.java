@@ -1,4 +1,4 @@
-package online.daliang.kafka.utils;
+package online.daliang.kafka.producer.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

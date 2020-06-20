@@ -1,8 +1,8 @@
 package online.daliang.kafka.producer;
 
 import com.alibaba.fastjson.JSON;
-import online.daliang.kafka.model.Member;
-import online.daliang.kafka.utils.MemberLog;
+import online.daliang.kafka.producer.model.*;
+import online.daliang.kafka.producer.utils.*;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
@@ -22,10 +22,33 @@ public class KafkaLogProducer {
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
         KafkaProducer kafkaProducer = new KafkaProducer<String, String>(props);
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100; i++) {
+            String jsonString;
+            Advertisement advertisement = AdvertisementLog.generateLog(String.valueOf(i));
+            jsonString = JSON.toJSONString(advertisement);
+            System.out.println(jsonString);
+
             Member member = MemberLog.generateLog(String.valueOf(i));
-            String jsonString = JSON.toJSONString(member);
-            kafkaProducer.send(new ProducerRecord<String, String >("member_log", jsonString));
+            jsonString = JSON.toJSONString(member);
+            System.out.println(jsonString);
+
+            MemberRegisterTypeLog.generateLog(String.valueOf(i), "webA");
+            jsonString = JSON.toJSONString(member);
+            System.out.println(jsonString);
+
+            MemberTransaction memberTransaction = MemberTransactionLog.generateLog();
+            jsonString = JSON.toJSONString(memberTransaction);
+            System.out.println(jsonString);
+
+            MemberVipLevel memberVipLevel = MemberVipLevelLog.generateLog(String.valueOf(i));
+            jsonString = JSON.toJSONString(memberVipLevel);
+            System.out.println(jsonString);
+
+            WebSite webSite = WebSiteLog.generateLog(String.valueOf(i), "webA");
+            jsonString = JSON.toJSONString(webSite);
+            System.out.println(jsonString);
+
+//            kafkaProducer.send(new ProducerRecord<String, String >("member_log", jsonString));
         }
         kafkaProducer.flush();
         kafkaProducer.close();
