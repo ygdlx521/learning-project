@@ -1,8 +1,7 @@
-package online.daliang.flink.streaming
+package online.daliang.flink.test
 
 import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
-
 
 object StreamingWordCount {
 

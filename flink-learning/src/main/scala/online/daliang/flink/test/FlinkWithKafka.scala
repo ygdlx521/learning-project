@@ -1,12 +1,11 @@
-package online.daliang.flink.streaming
+package online.daliang.flink.test
 
 import java.util.Properties
 
 import org.apache.flink.api.common.serialization.SimpleStringSchema
 import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
-import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer, KafkaSerializationSchema}
-
+import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer010, FlinkKafkaProducer010}
 
 object FlinkWithKafka {
 
@@ -26,7 +25,7 @@ object FlinkWithKafka {
     properties.setProperty("auto.offset.reset", "latest")
 
     val stream: DataStream[String] = env.addSource(
-      new FlinkKafkaConsumer[String]("first_test", new SimpleStringSchema(), properties)
+      new FlinkKafkaConsumer010[String]("first_test", new SimpleStringSchema(), properties)
     )
 
     val producerProperties = new Properties()
@@ -34,7 +33,7 @@ object FlinkWithKafka {
 
 
     stream.addSink(
-      new FlinkKafkaProducer[String](
+      new FlinkKafkaProducer010[String](
         "second_test", new SimpleStringSchema(), producerProperties)
     )
 
