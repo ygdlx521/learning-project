@@ -47,36 +47,11 @@ object OdsEtlData {
     checkpointConfig.setCheckpointTimeout(10000l) //设置checkpoint超时时间
     checkpointConfig.enableExternalizedCheckpoints(CheckpointConfig.ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION) //cancel时保留checkpoint
     // 设置statebackend 为rockdb
-    val stateBackend: StateBackend = new RocksDBStateBackend("hdfs://user/flink/rocks_db_checkpoint")
+    val stateBackend: StateBackend = new RocksDBStateBackend("hdfs://master/user/flink/rocks_db_checkpoint")
     env.setStateBackend(stateBackend)
 
     //设置重启策略   重启3次 间隔10秒
     env.setRestartStrategy(RestartStrategies.fixedDelayRestart(3, Time.seconds(10)))
-
-
-//    val properties = new Properties()
-//    //    properties.setProperty("bootstrap.servers", "master:9092,slave0:9092,slave1:9092")
-//    properties.setProperty("bootstrap.servers", "node00:9092,node01:9092,node02:9092")
-//    properties.setProperty("group.id", "consumer-group")
-//    properties.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
-//    properties.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
-//    properties.setProperty("auto.offset.reset", "latest")
-//
-//    val stream: DataStreamSource[String] = env.addSource(
-//      new FlinkKafkaConsumer010[String]("first_test", new SimpleStringSchema(), properties)
-//    )
-//
-//    val producerProperties = new Properties()
-//    producerProperties.setProperty("bootstrap.servers", "node00:9092,node01:9092,node02:9092")
-//
-//
-//    stream.addSink(
-//      new FlinkKafkaProducer010[String](
-//        "second_test", new SimpleStringSchema(), producerProperties)
-//    )
-//
-//    env.execute("Flink Read Write Kafka")
-
 
     import scala.collection.JavaConverters._
     val topicList = params.get(TOPIC).split(",").toBuffer.asJava

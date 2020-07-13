@@ -13,7 +13,8 @@ public class KafkaLogProducer {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "node00:9092,node01:9092,node02:9092");
+//        props.put("bootstrap.servers", "node00:9092,node01:9092,node02:9092");
+        props.put("bootstrap.servers", "master:9092,slave0:9092,slave1:9092");
         props.put("acks", "-1");
         props.put("batch.size", 16384);
         props.put("linger.ms", 1);
