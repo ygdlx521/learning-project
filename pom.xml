@@ -18,6 +18,7 @@
         <module>springboot</module>
         <module>flink-learning</module>
         <module>kafka-learning</module>
+        <module>hive-function</module>
     </modules>
 
 

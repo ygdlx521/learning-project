@@ -88,7 +88,7 @@ object DwdJoinData {
       //      .window(ProcessingTimeSessionWindows.withGap(Time.seconds(5)))
       .window(TumblingEventTimeWindows.of(Time.minutes(10)))
       .trigger(CountTrigger.of(1))
-      .apply(new MemberLeftJoinRegtype)
+      .apply(new MemberLeftJoinMemberRegisterTypeCoGroupFunction)
       .assignTimestampsAndWatermarks(new BoundedOutOfOrdernessTimestampExtractor[String](Time.seconds(10)) {
         override def extractTimestamp(element: String): Long = {
           val register = ParseJsonData.getJsonData(element).getString("register")
