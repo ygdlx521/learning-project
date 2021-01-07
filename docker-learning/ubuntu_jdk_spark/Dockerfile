@@ -13,3 +13,20 @@ RUN apt-get update && \
 
 
 
+RUN apt-get update && apt-get install -y software-properties-common
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get update && apt-get install -y \
+    python3.7 \
+    python3-pip
+RUN python3.7 -m pip install pip
+
+RUN python3.7 -m pip install pip --upgrade pip
+# Set python 3 as the default python
+#RUN update-alternatives --set python /usr/bin/python3.7
+
+COPY requirements.txt ./
+RUN pip install  --no-cache-dir -r requirements.txt
+
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+
